@@ -217,3 +217,5 @@ en:
   action:
     groups:
       create: Group creation process
+    tasks:
+      create: Task creation process

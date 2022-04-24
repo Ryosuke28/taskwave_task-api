@@ -3,9 +3,6 @@ module Api
     class GroupsController < ApplicationController
       before_action :check_action_user
 
-      AUTHORITY_ADMIN = %w[admin owner].freeze
-      AUTHORITY_OWNER = %w[owner].freeze
-
       # グループ作成
       # POST /api/v1/groups
       def create
@@ -29,7 +26,7 @@ module Api
         # authority = RestClient.get_user_authority(JSON.parse(request.headers['UserId']), params.dig(:group, :team_id))
         authority = RestClient.get_user_authority(request.headers['UserId'], params.dig(:group, :team_id))
 
-        raise Exceptions::PermissionError unless AUTHORITY_ADMIN.include?(authority)
+        raise Exceptions::PermissionError unless Group::AUTHORITY_ADMIN.include?(authority)
       end
     end
   end

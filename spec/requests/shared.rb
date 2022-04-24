@@ -1,3 +1,13 @@
+RSpec.shared_context 'ステータスデフォルトデータ作成' do
+  before do
+    Status.first_or_create([
+                             { id: 1, name: 'before_start', description: '着手前' },
+                             { id: 2, name: 'working', description: '作業中' },
+                             { id: 3, name: 'finish', description: '完了' }
+                           ])
+  end
+end
+
 # action_name, error_code, error_messagesは事前に定義しておく
 RSpec.shared_examples '正しいエラーを返す' do |status|
   context '日本語の場合' do

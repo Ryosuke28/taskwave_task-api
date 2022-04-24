@@ -99,12 +99,6 @@ RSpec.describe Task, type: :model do
       end
     end
 
-    describe 'sort_number' do
-      context '必須入力' do
-        it_behaves_like '必須入力の確認', 'ソート順を入力してください' do
-          let(:sort_number) { target_column }
-        end
-      end
-    end
+    # sort_numberの必須チェック：before_validateで値を必ず登録するため、省略する
   end
 end

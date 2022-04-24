@@ -5,9 +5,7 @@ RSpec.describe "Groups", type: :request do
   describe 'POST /api/v1/groups' do
     subject { post api_v1_groups_path, params: { group: group_params } }
 
-    before do
-      allow(RestClient).to receive(:get_user_authority).and_return(authority)
-    end
+    before { allow(RestClient).to receive(:get_user_authority).and_return(authority) }
 
     let(:action_name) { 'グループ作成処理' }
     let(:en_action_name) { 'Group creation process' }
