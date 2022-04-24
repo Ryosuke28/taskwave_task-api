@@ -37,10 +37,6 @@ module TaskApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.generators do |g|
-      g.test_framework :rspec
-    end
-
     # i18n
     # 言語ファイルを階層ごとに設定するための記述
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
@@ -53,11 +49,6 @@ module TaskApi
 
     # デフォルトの言語設定
     config.i18n.default_locale = :ja
-
-    config.hosts << "taskwave_auth-api_1"
-    config.hosts << "www.example.com"
-
-    # カスタム例外の設定ファイルを読み込む
-    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+  end
   end
 end

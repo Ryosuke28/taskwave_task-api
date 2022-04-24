@@ -7,7 +7,6 @@ en:
         restrict_dependent_destroy:
           has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
-        permission_invalid: No permission
   date:
     abbr_day_names:
     - Sun
@@ -214,6 +213,3 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  action:
-    groups:
-      create: Group creation process
