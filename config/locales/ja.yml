@@ -210,3 +210,5 @@ ja:
   action:
     groups:
       create: グループ作成処理
+    tasks:
+      create: タスク作成処理
