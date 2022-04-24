@@ -1,0 +1,38 @@
+name: "Ruby on Rails CI"
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:11-alpine
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        env:
+          POSTGRES_HOST_AUTH_METHOD: 'trust'
+    container:
+      image: ruby:2.7.5
+      env:
+        RAILS_ENV: test
+        DATABASE_HOST: db
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache bundle gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-${{ env.cache-name }}-
+            ${{ runner.os }}-gem-
+            ${{ runner.os }}-
+      - name: Install Bundler
+        run: gem install bundler --no-document -v $(grep "BUNDLED WITH" -1 Gemfile.lock | tail -n 1)
+      - name: Bundle install
+        run: bundle install --path=vendor/bundle --jobs 4 --retry 3
+      - name: DB setup
+        run: bundle exec rake db:setup
+      - name: Run rubocop
+        run: bundle exec rubocop
+      - name: Run rspec
+        run: bundle exec rspec
