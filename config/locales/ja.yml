@@ -7,6 +7,8 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+        record_not_found: "%{model_name}は存在しません"
+        permission_invalid: 権限がありません
   date:
     abbr_day_names:
     - 日
@@ -205,3 +207,6 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  action:
+    groups:
+      create: グループ作成処理
