@@ -61,9 +61,10 @@ RSpec.describe "Tasks", type: :request do
       end
 
       context 'タスクの登録がある場合' do
-        before { create(:task, :status_before_start, group: group) }
-
-        let(:sort_number) { 2 }
+        before { sample_task }
+        
+        let(:sample_task) { create(:task, :status_before_start, group: group) }
+        let(:sort_number) { sample_task.sort_number.next }
 
         it 'グループが登録される' do
           expect { subject }.to change(Task, :count).by(1)

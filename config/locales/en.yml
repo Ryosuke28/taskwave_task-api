@@ -7,6 +7,7 @@ en:
         restrict_dependent_destroy:
           has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
+        record_not_found: "%{model_name} not found"
         permission_invalid: No permission
   date:
     abbr_day_names:
@@ -140,6 +141,7 @@ en:
       wrong_length:
         one: is the wrong length (should be 1 character)
         other: is the wrong length (should be %{count} characters)
+      invalid_change: cannot change
     template:
       body: 'There were problems with the following fields:'
       header:
@@ -217,5 +219,8 @@ en:
   action:
     groups:
       create: Group creation process
+      edit: Group detail acquisition process
+      update: Group information update process
+      destroy: Group deletion process
     tasks:
       create: Task creation process

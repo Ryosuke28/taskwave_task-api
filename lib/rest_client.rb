@@ -17,5 +17,16 @@ class RestClient
 
       ''
     end
+
+    # 紐づくチームの情報を取得する
+    # @param [Integer] team_id チームID
+    # @return [Hash] チーム詳細
+    def get_team_details(team_id)
+      response = get("/api/v1/teams/#{team_id}/edit")
+
+      return response.parsed_response.with_indifferent_access if response.code == 200
+
+      {}
+    end
   end
 end
