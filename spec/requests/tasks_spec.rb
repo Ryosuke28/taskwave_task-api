@@ -62,7 +62,7 @@ RSpec.describe "Tasks", type: :request do
 
       context 'タスクの登録がある場合' do
         before { sample_task }
-        
+
         let(:sample_task) { create(:task, :status_before_start, group: group) }
         let(:sort_number) { sample_task.sort_number.next }
 
