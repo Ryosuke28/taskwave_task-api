@@ -1,7 +1,7 @@
 module Api
   module V1
     class GroupsController < ApplicationController
-      before_action :check_action_user, only: [:create, :update, :destroy]
+      before_action :check_admin_user, only: [:create, :update, :destroy]
       before_action :find_group, only: [:edit, :update, :destroy]
 
       # グループ作成
@@ -51,8 +51,8 @@ module Api
         params.require(:group).permit(:name, :team_id)
       end
 
-      # チームに対して権限を持っているユーザーか確認する
-      def check_action_user
+      # チームに対して管理者権限を持っているユーザーか確認する
+      def check_admin_user
         # authority = RestClient.get_user_authority(JSON.parse(request.headers['UserId']), params.dig(:group, :team_id))
         authority = RestClient.get_user_authority(request.headers['UserId'], params.dig(:group, :team_id))
 

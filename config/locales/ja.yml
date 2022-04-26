@@ -216,3 +216,6 @@ ja:
       destroy: グループ削除処理
     tasks:
       create: タスク作成処理
+      edit: タスク詳細取得処理
+      update: タスク情報更新処理
+      destroy: タスク削除処理

@@ -224,3 +224,6 @@ en:
       destroy: Group deletion process
     tasks:
       create: Task creation process
+      edit: Task detail acquisition process
+      update: Task information update process
+      destroy: Task deletion process
