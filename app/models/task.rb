@@ -8,6 +8,21 @@ class Task < ApplicationRecord
 
   before_validation :add_sort_number
 
+  def hash_for_edit
+    {
+      id: id,
+      title: title,
+      group_id: group_id,
+      status_id: status_id,
+      deadline: deadline,
+      detail: detail,
+      sort_number: sort_number,
+      user_id: user_id,
+      created_at: created_at.iso8601,
+      updated_at: updated_at.iso8601
+    }
+  end
+
   private
 
   def add_sort_number

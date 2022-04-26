@@ -6,6 +6,7 @@ class Group < ApplicationRecord
   validates :name, uniqueness: { scope: :team_id }
   validate :change_team_id_validation, on: :update
 
+  AUTHORITY_NORMAL = %w[normal admin owner].freeze
   AUTHORITY_ADMIN = %w[admin owner].freeze
   AUTHORITY_OWNER = %w[owner].freeze
 
