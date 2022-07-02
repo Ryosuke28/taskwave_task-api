@@ -86,7 +86,7 @@ RSpec.describe "Tasks", type: :request do
 
     context 'ユーザーにグループ作成権限が無い場合' do
       let(:authority) { 'normal' }
-      let(:error_code) { 'UAM_000002' }
+      let(:error_code) { 'TLM_000002' }
       let(:error_messages) { ['権限がありません'] }
       let(:en_error_messages) { ["No permission"] }
 
@@ -147,7 +147,7 @@ RSpec.describe "Tasks", type: :request do
 
     context 'タスクの登録がない場合' do
       let(:id) { Task.last.id.next }
-      let(:error_code) { 'UAM_000001' }
+      let(:error_code) { 'TLM_000001' }
       let(:error_messages) { ['タスクは存在しません'] }
       let(:en_error_messages) { ["Task not found"] }
 
@@ -157,7 +157,7 @@ RSpec.describe "Tasks", type: :request do
     context 'ユーザーにチームの一般権限が無い場合' do
       # チームに所属していないユーザーも含む
       let(:authority) { '' }
-      let(:error_code) { 'UAM_000002' }
+      let(:error_code) { 'TLM_000002' }
       let(:error_messages) { ['権限がありません'] }
       let(:en_error_messages) { ["No permission"] }
       it_behaves_like '正しいエラーを返す', 400
@@ -227,7 +227,7 @@ RSpec.describe "Tasks", type: :request do
 
     context 'パラメータが不足している場合' do
       let(:title) { '' }
-      let(:error_code) { 'TLM_010201' }
+      let(:error_code) { 'TLM_020301' }
       let(:error_messages) { ['タイトルを入力してください'] }
       let(:en_error_messages) { ["Title can't be blank"] }
 
@@ -236,7 +236,7 @@ RSpec.describe "Tasks", type: :request do
 
     context 'タスクの登録がない場合' do
       let(:id) { Task.last.id.next }
-      let(:error_code) { 'UAM_000001' }
+      let(:error_code) { 'TLM_000001' }
       let(:error_messages) { ['タスクは存在しません'] }
       let(:en_error_messages) { ["Task not found"] }
 
@@ -263,7 +263,7 @@ RSpec.describe "Tasks", type: :request do
       end
 
       context 'タスクにアサインされていないユーザーの場合' do
-        let(:error_code) { 'UAM_000002' }
+        let(:error_code) { 'TLM_000002' }
         let(:error_messages) { ['権限がありません'] }
         let(:en_error_messages) { ["No permission"] }
 
@@ -272,7 +272,7 @@ RSpec.describe "Tasks", type: :request do
 
       context 'チームに属していないユーザーの場合' do
         let(:authority) { '' }
-        let(:error_code) { 'UAM_000002' }
+        let(:error_code) { 'TLM_000002' }
         let(:error_messages) { ['権限がありません'] }
         let(:en_error_messages) { ["No permission"] }
 
@@ -303,7 +303,7 @@ RSpec.describe "Tasks", type: :request do
 
     context '存在しないIDの場合' do
       let(:id) { Task.last.id.next }
-      let(:error_code) { 'UAM_000001' }
+      let(:error_code) { 'TLM_000001' }
       let(:error_messages) { ['タスクは存在しません'] }
       let(:en_error_messages) { ["Task not found"] }
 
@@ -312,7 +312,7 @@ RSpec.describe "Tasks", type: :request do
 
     context '削除権限のないユーザーの場合' do
       let(:authority) { 'normal' }
-      let(:error_code) { 'UAM_000002' }
+      let(:error_code) { 'TLM_000002' }
       let(:error_messages) { ['権限がありません'] }
       let(:en_error_messages) { ["No permission"] }
 

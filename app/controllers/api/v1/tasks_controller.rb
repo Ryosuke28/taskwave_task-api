@@ -4,7 +4,7 @@ module Api
       before_action :check_admin_user?, only: [:create]
       before_action :find_task, only: [:edit, :update, :destroy]
 
-      # タスク作成
+      # タスク作成、コントローラ番号：0201
       # POST /api/v1/tasks
       def create
         task = Task.new(task_params)
@@ -16,14 +16,14 @@ module Api
         end
       end
 
-      # タスク詳細
+      # タスク詳細、コントローラ番号：0202
       # GET /api/v1/tasks/:id/edit
       def edit
         check_team_user(@task)
         render_json @task.hash_for_edit
       end
 
-      # タスク更新
+      # タスク更新、コントローラ番号：0203
       # PATCH /api/v1/tasks/:id
       def update
         check_update_user(@task)
@@ -34,13 +34,13 @@ module Api
         else
           render problem: {
             title: I18n.t('action.tasks.update'),
-            error_code: 'TLM_010201',
+            error_code: 'TLM_020301',
             error_message: @task.errors.full_messages
           }, status: :bad_request
         end
       end
 
-      # タスク削除
+      # タスク削除、コントローラ番号：0204
       # DELETE /api/v1/tasks/:id
       def destroy
         check_delete_user(@task)

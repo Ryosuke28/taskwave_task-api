@@ -17,7 +17,7 @@ class ApplicationController < ActionController::API
     model_name = params[:controller].split('/').last
     render problem: {
       title: I18n.t("action.#{model_name}.#{params[:action]}"),
-      error_code: 'UAM_000001',
+      error_code: 'TLM_000001',
       error_message: [
         I18n.t("activerecord.errors.messages.record_not_found", model_name: I18n.t("activerecord.models.#{model_name}"))
       ]
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::API
     model_name = params[:controller].split('/').last
     render problem: {
       title: I18n.t("action.#{model_name}.#{params[:action]}"),
-      error_code: 'UAM_000002',
+      error_code: 'TLM_000002',
       error_message: [
         I18n.t("activerecord.errors.messages.permission_invalid")
       ]

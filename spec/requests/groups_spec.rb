@@ -54,7 +54,7 @@ RSpec.describe "Groups", type: :request do
 
     context 'ユーザーにグループ作成権限が無い場合' do
       let(:authority) { 'normal' }
-      let(:error_code) { 'UAM_000002' }
+      let(:error_code) { 'TLM_000002' }
       let(:error_messages) { ['権限がありません'] }
       let(:en_error_messages) { ["No permission"] }
 
@@ -105,7 +105,7 @@ RSpec.describe "Groups", type: :request do
 
     context '存在しないIDの場合' do
       let(:id) { Group.last.id.next }
-      let(:error_code) { 'UAM_000001' }
+      let(:error_code) { 'TLM_000001' }
       let(:error_messages) { ['グループは存在しません'] }
       let(:en_error_messages) { ["Group not found"] }
 
@@ -161,7 +161,7 @@ RSpec.describe "Groups", type: :request do
 
     context 'ユーザーにグループ更新権限が無い場合' do
       let(:authority) { 'normal' }
-      let(:error_code) { 'UAM_000002' }
+      let(:error_code) { 'TLM_000002' }
       let(:error_messages) { ['権限がありません'] }
       let(:en_error_messages) { ["No permission"] }
 
@@ -170,7 +170,7 @@ RSpec.describe "Groups", type: :request do
 
     context '存在しないIDの場合' do
       let(:id) { Group.last.id.next }
-      let(:error_code) { 'UAM_000001' }
+      let(:error_code) { 'TLM_000001' }
       let(:error_messages) { ['グループは存在しません'] }
       let(:en_error_messages) { ["Group not found"] }
 
@@ -200,7 +200,7 @@ RSpec.describe "Groups", type: :request do
 
     context '存在しないIDの場合' do
       let(:id) { Group.last.id.next }
-      let(:error_code) { 'UAM_000001' }
+      let(:error_code) { 'TLM_000001' }
       let(:error_messages) { ['グループは存在しません'] }
       let(:en_error_messages) { ["Group not found"] }
 
@@ -209,7 +209,7 @@ RSpec.describe "Groups", type: :request do
 
     context 'ユーザーにグループ削除権限が無い場合' do
       let(:authority) { 'normal' }
-      let(:error_code) { 'UAM_000002' }
+      let(:error_code) { 'TLM_000002' }
       let(:error_messages) { ['権限がありません'] }
       let(:en_error_messages) { ["No permission"] }
 
