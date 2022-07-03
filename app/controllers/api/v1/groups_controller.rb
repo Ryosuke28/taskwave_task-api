@@ -4,7 +4,7 @@ module Api
       before_action :check_admin_user, only: [:create, :update, :destroy]
       before_action :find_group, only: [:edit, :update, :destroy]
 
-      # グループ作成
+      # グループ作成、コントローラ番号：0101
       # POST /api/v1/groups
       def create
         group = Group.new(group_params)
@@ -16,7 +16,7 @@ module Api
         end
       end
 
-      # グループ詳細
+      # グループ詳細、コントローラ番号：0102
       # GET /api/v1/groups/:id/edit
       def edit
         render_json @group.hash_for_edit
@@ -38,7 +38,7 @@ module Api
         end
       end
 
-      # グループ削除
+      # グループ削除、コントローラ番号：0104
       # DELETE /api/v1/groups/:id
       def destroy
         @group.destroy
